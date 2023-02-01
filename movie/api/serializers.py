@@ -23,12 +23,12 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
 
-    fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name')
-    extra_kwargs = {
-        'first_name': {'required': True},
-        'last_name': {'required': True}, 'password': {'write_only': True, 'min_length': 6},
-        'password2': {'write_only': True, 'min_length': 6}
-    }
+        fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name')
+        extra_kwargs = {
+            'first_name': {'required': True},
+            'last_name': {'required': True}, 'password': {'write_only': True, 'min_length': 6},
+            'password2': {'write_only': True, 'min_length': 6}
+        }
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
